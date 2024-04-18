@@ -22,14 +22,16 @@ const createBoxes = (amount) => {
   boxesContainer.innerHTML = "";
   let size = 30;
   if (amount >= 1 && amount <= 100) {
+    const elements = [];
     for (let index = 0; index < amount; index++) {
       const div = document.createElement("div")
       div.style.width = `${size}px`;
       div.style.height = `${size}px`;
       div.style.backgroundColor = getRandomHexColor();
-      boxesContainer.appendChild(div);
+      elements.push(div);
       size += 10;
     }
+    boxesContainer.append(...elements);
     input.value = "";
   }
 }
